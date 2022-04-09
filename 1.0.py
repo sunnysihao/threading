@@ -15,15 +15,16 @@ def multi_thread():
     threads = []
     for url in spider.urls:
         threads.append(
-            threading.Thread(target=spider.craw, args=(url, ))
+            threading.Thread(target=spider.craw, args=(url,))
         )
     for thread in threads:
         thread.start()
+
     for thread in threads:
         thread.join()
     print("spider_end")
 
-if __name__ ==' __main_':
+if __name__=='__main__':
     start = time.time()
     single_thread()
     end = time.time()
